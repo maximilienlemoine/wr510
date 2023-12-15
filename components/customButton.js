@@ -1,17 +1,16 @@
 import {Button} from "react-native";
 
-export default function CustomButton({changeText, color, text}) {
+export default function CustomButton({event, color, title, data}) {
 
-    const clickEvent = () => {
-        changeText(text)
+    const nextPage = () => {
     }
 
     return(
         <Button
-            onPress={clickEvent}
-            title="Learn More"
+            onPress={event}
+            title={title}
             color={color}
-            accessibilityLabel="Learn more about this purple button"
+            accessibilityLabel={title}
         />
     )
 }
