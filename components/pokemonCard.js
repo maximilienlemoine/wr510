@@ -6,7 +6,7 @@ export default function PokemonCard({name, url}) {
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
     return (
-        <TouchableOpacity onPress={} style={styles.card}>
+        <TouchableOpacity style={styles.card}>
             <Image style={styles.image} source={{uri: image}}/>
             <View style={styles.titleDiv}>
                 <Text style={styles.title}>{name}</Text>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     titleDiv: {
-        backgroundColor: '#ab0000',
+        backgroundColor: '#E4000F',
         padding: 5,
         borderRadius: 3,
     }

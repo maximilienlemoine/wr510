@@ -1,4 +1,4 @@
-import {Button, FlatList, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import {FlatList, SafeAreaView, StyleSheet} from "react-native";
 import React, {useEffect, useState} from "react";
 import PokemonCard from "../components/pokemonCard";
 import {StatusBar} from "expo-status-bar";
@@ -45,7 +45,7 @@ export default function HomePage() {
 
 const styles = StyleSheet.create({
     list: {
-        padding: 10,
-        marginBottom: 15,
+        paddingLeft: 20,
+        marginBottom: 2,
     },
 });

@@ -1,18 +1,18 @@
-import {StatusBar} from 'expo-status-bar';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from "@react-navigation/stack";
 import HomePage from "./pages/HomePage";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import TabsPage from "./navigation/tabs";
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
     return (
             <NavigationContainer>{
-                <Stack.Navigator>
-                    <Stack.Screen name='Pokedex' component={HomePage}/>
-                </Stack.Navigator>
+                <TabsPage>
+
+                </TabsPage>
             }</NavigationContainer>
     );
 }
