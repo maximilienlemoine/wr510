@@ -13,27 +13,22 @@ function TabsPage() {
         return (
             <Tab.Navigator
                 initialRouteName='Pokedex'
-                tabBarOptions={{
-                    showLabel: false,
-                    style: {
+                screenOptions={{
+                    headerShown: false,
+                    tabBarActiveTintColor: '#E4000F',
+                    tabBarInactiveTintColor: '#000000',
+                    tabBarShowLabel: false,
+                    tabBarStyle: {
+                        backgroundColor: '#FFFFFF',
+                        borderTopColor: '#FFFFFF',
                         position: 'absolute',
                         bottom: 25,
                         left: 20,
                         right: 20,
                         elevation: 0,
-                        backgroundColor: '#FFFFFF',
                         borderRadius: 15,
                         height: 90,
                         ...styles.shadow
-                    }
-                }}
-                screenOptions={{
-                    headerShown: false,
-                    tabBarActiveTintColor: '#E4000F',
-                    tabBarInactiveTintColor: '#000000',
-                    tabBarStyle: {
-                        backgroundColor: '#FFFFFF',
-                        borderTopColor: '#FFFFFF',
                     },
                 }}
             >
@@ -120,16 +115,15 @@ function TabsPage() {
 export default function StackNavigator() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name='Pokedex' component={TabsPage} options={
+            <Stack.Screen name='Tabs' component={TabsPage} options={
                 {
                     title: 'Poke App',
                 }
             }
             />
-            <Stack.Screen name='Pokemon' component={PokemonDetail} options={{
+            <Stack.Screen name='Pokemon' component={PokemonDetail} initialParams={{id: 1}} options={{
                     title: 'Detail du Pokemon',
                 }}
-                          initialParams={{id: 1}}
             />
         </Stack.Navigator>
     )

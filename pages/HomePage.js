@@ -46,6 +46,6 @@ export default function HomePage() {
 const styles = StyleSheet.create({
     list: {
         paddingLeft: 20,
-        marginBottom: 2,
+        paddingRight: 20,
     },
 });

@@ -13,20 +13,5 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 60,
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    pokedexDiv: {
-        padding: 5,
-        width: '100%',
-        backgroundColor: '#ab0000'
-    },
-    pokedexTitle: {
-        color: 'white',
-        fontWeight: 'bold',
-    }
+
 });
