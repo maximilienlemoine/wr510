@@ -1,9 +1,6 @@
 import {Button} from "react-native";
 
-export default function CustomButton({event, color, title, data}) {
-
-    const nextPage = () => {
-    }
+export default function CustomButton({event, color, title}) {
 
     return(
         <Button
