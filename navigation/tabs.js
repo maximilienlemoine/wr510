@@ -4,11 +4,12 @@ import HomePage from "../pages/HomePage";
 import TeamPage from "../pages/TeamPage";
 import SettingsPage from "../pages/SettingsPage";
 import {Image, View, Text, StyleSheet} from "react-native";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import PokemonDetail from "../components/pokemonDetail";
 
 const Tab = createBottomTabNavigator();
-
-export default function TabsPage() {
-
+const Stack = createNativeStackNavigator();
+function TabsPage() {
         return (
             <Tab.Navigator
                 initialRouteName='Pokedex'
@@ -27,6 +28,7 @@ export default function TabsPage() {
                     }
                 }}
                 screenOptions={{
+                    headerShown: false,
                     tabBarActiveTintColor: '#E4000F',
                     tabBarInactiveTintColor: '#000000',
                     tabBarStyle: {
@@ -113,6 +115,24 @@ export default function TabsPage() {
                 }/>
             </Tab.Navigator>
         );
+}
+
+export default function StackNavigator() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Pokedex' component={TabsPage} options={
+                {
+                    title: 'Poke App',
+                }
+            }
+            />
+            <Stack.Screen name='Pokemon' component={PokemonDetail} options={{
+                    title: 'Detail du Pokemon',
+                }}
+                          initialParams={{id: 1}}
+            />
+        </Stack.Navigator>
+    )
 }
 
 const styles = StyleSheet.create({

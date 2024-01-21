@@ -1,17 +1,12 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import HomePage from "./pages/HomePage";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import TabsPage from "./navigation/tabs";
-
-const Stack = createNativeStackNavigator();
 
 export default function App() {
 
     return (
             <NavigationContainer>{
                 <TabsPage>
-
                 </TabsPage>
             }</NavigationContainer>
     );
