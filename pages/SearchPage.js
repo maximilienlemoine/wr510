@@ -1,20 +1,30 @@
 import {SafeAreaView, StyleSheet, TextInput} from "react-native";
 import React, {useEffect, useState} from "react";
-import {StatusBar} from "expo-status-bar";
 
 export default function SearchPage() {
-
+    const [text, onChangeText] = useState('');
+    const [number, onChangeNumber] = useState('');
     return (
-        <SafeAreaView style={styles.container}>
-            <TextInput></TextInput>
-
-            <StatusBar style="auto"/>
+        <SafeAreaView>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                value={text}
+                placeholder="useless placeholder"
+                keyboardType="default"
+                pointerEvents={'none'}
+            />
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 25,
 
-    }
+    },
 });
