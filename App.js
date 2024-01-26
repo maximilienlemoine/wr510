@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import TabsPage from "./navigation/tabs";
+import TabsPage from "./navigation/Tabs";
 
 export default function App() {
 

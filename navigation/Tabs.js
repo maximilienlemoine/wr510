@@ -9,7 +9,7 @@ import PokemonDetail from "../components/pokemonDetail";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-function TabsPage() {
+export default function TabsPage() {
         return (
             <Tab.Navigator
                 initialRouteName='Pokedex'
@@ -32,7 +32,7 @@ function TabsPage() {
                     },
                 }}
             >
-                <Tab.Screen name='Pokedex' component={HomePage} options={
+                <Tab.Screen name='Pokedex' component={HomeStackNavigator} options={
                     {
                         tabBarIcon: ({color}) => (
                             <View style={styles.viewStyle}>
@@ -51,7 +51,7 @@ function TabsPage() {
                     }
 
                 }/>
-                <Tab.Screen name='Recherche' component={SearchPage} options={
+                <Tab.Screen name='Recherche' component={SearchStackNavigator} options={
                     {
                         tabBarIcon: ({color}) => (
                             <View style={styles.viewStyle}>
@@ -69,7 +69,7 @@ function TabsPage() {
                         )
                     }
                 }/>
-                <Tab.Screen name='Mon équipe' component={TeamPage} options={
+                <Tab.Screen name='Mon équipe' component={TeamStackNavigator} options={
                     {
                         tabBarIcon: ({color}) => (
                             <View style={styles.viewStyle}>
@@ -89,7 +89,7 @@ function TabsPage() {
                     }
 
                 }/>
-                <Tab.Screen name='Paramètres' component={SettingsPage} options={
+                <Tab.Screen name='Paramètres' component={SettingsStackNavigator} options={
                     {
                         tabBarIcon: ({color}) => (
                             <View style={styles.viewStyle}>
@@ -112,12 +112,12 @@ function TabsPage() {
         );
 }
 
-export default function StackNavigator() {
+function HomeStackNavigator() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name='Tabs' component={TabsPage} options={
+            <Stack.Screen name='Tabs' component={HomePage} options={
                 {
-                    title: 'Poke App',
+                    title: 'Pokedex',
                 }
             }
             />
@@ -128,6 +128,55 @@ export default function StackNavigator() {
         </Stack.Navigator>
     )
 }
+
+function SearchStackNavigator() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Tabs' component={SearchPage} options={
+                {
+                    title: 'Recherche',
+                }
+            }
+            />
+            <Stack.Screen name='Pokemon' component={PokemonDetail} initialParams={{id: 1}} options={{
+                title: 'Detail du Pokemon',
+            }}
+            />
+        </Stack.Navigator>
+    )
+}
+
+function TeamStackNavigator() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Tabs' component={TeamPage} options={
+                {
+                    title: 'Mon équipe',
+                }
+            }
+            />
+            <Stack.Screen name='Pokemon' component={PokemonDetail} initialParams={{id: 1}} options={{
+                title: 'Detail du Pokemon',
+            }}
+            />
+        </Stack.Navigator>
+    )
+}
+
+function SettingsStackNavigator() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Tabs' component={SettingsPage} options={
+                {
+                    title: 'Paramètres',
+                }
+            }
+            />
+        </Stack.Navigator>
+    )
+
+}
+
 
 const styles = StyleSheet.create({
     viewStyle: {

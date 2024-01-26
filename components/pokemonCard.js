@@ -29,7 +29,7 @@ export default function PokemonCard({name, url}) {
 const styles = StyleSheet.create({
     card: {
         width: 100,
-        height: 100,
+        height: 120,
         margin: 10,
         borderRadius: 5,
         alignItems: 'center',
