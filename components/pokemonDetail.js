@@ -80,7 +80,6 @@ export default function PokemonDetail(route) {
         }
     }
 
-
     return (
         <SafeAreaView style={styles.container}>
             <Text>Nom : {capitalizeFirstLetter(data.name)} ({data.order})</Text>
@@ -89,10 +88,10 @@ export default function PokemonDetail(route) {
             <Text>Types : {data.types && data.types.map((type) => type.type.name).join(', ')}</Text>
             <Text>Expérience de base : {data.base_experience}</Text>
             <Text style={styles.title}>Statistiques : </Text>
-                {data.stats && data.stats.map((stat) =>
-                    <Text key={stat.stat.name}>{capitalizeFirstLetter(stat.stat.name)} : {stat.base_stat}</Text>
-                )}
-            <View style={{ flex: 1, flexDirection: 'row', }}>
+            {data.stats && data.stats.map((stat) =>
+                <Text key={stat.stat.name}>{capitalizeFirstLetter(stat.stat.name)} : {stat.base_stat}</Text>
+            )}
+            <View style={{flex: 1, flexDirection: 'row',}}>
                 <View>
                     <Image style={styles.image} source={{uri: image}}/>
                     <Text style={styles.textCenter}>Visuel normal</Text>
@@ -102,7 +101,7 @@ export default function PokemonDetail(route) {
                     <Text style={styles.textCenter}>Visuel shiny</Text>
                 </View>
             </View>
-            <View style={{ bottom: 150}}>
+            <View style={{bottom: 150}}>
                 <CustomButton title={isInTeam ? "Libérer" : "Capturer"} color={'#E4000F'} event={addPokemonToTeam}/>
             </View>
         </SafeAreaView>

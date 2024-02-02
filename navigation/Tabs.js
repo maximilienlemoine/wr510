@@ -10,106 +10,106 @@ import PokemonDetail from "../components/pokemonDetail";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 export default function TabsPage() {
-        return (
-            <Tab.Navigator
-                initialRouteName='Pokedex'
-                screenOptions={{
-                    headerShown: false,
-                    tabBarActiveTintColor: '#E4000F',
-                    tabBarInactiveTintColor: '#000000',
-                    tabBarShowLabel: false,
-                    tabBarStyle: {
-                        backgroundColor: '#FFFFFF',
-                        borderTopColor: '#FFFFFF',
-                        position: 'absolute',
-                        bottom: 25,
-                        left: 20,
-                        right: 20,
-                        elevation: 0,
-                        borderRadius: 15,
-                        height: 90,
-                        ...styles.shadow
-                    },
-                }}
-            >
-                <Tab.Screen name='Pokedex' component={HomeStackNavigator} options={
-                    {
-                        tabBarIcon: ({color}) => (
-                            <View style={styles.viewStyle}>
-                                <Image
-                                    source={require('../assets/pokedex.png')}
-                                    resizeMode='contain'
-                                    style={{
-                                        width: 25,
-                                        height: 25,
-                                        tintColor: color
-                                    }}
-                                />
-                                <Text style={{color: color}}>Pokedex</Text>
-                            </View>
-                        )
-                    }
+    return (
+        <Tab.Navigator
+            initialRouteName='Pokedex'
+            screenOptions={{
+                headerShown: false,
+                tabBarActiveTintColor: '#E4000F',
+                tabBarInactiveTintColor: '#000000',
+                tabBarShowLabel: false,
+                tabBarStyle: {
+                    backgroundColor: '#FFFFFF',
+                    borderTopColor: '#FFFFFF',
+                    position: 'absolute',
+                    bottom: 25,
+                    left: 20,
+                    right: 20,
+                    elevation: 0,
+                    borderRadius: 15,
+                    height: 90,
+                    ...styles.shadow
+                },
+            }}
+        >
+            <Tab.Screen name='Pokedex' component={HomeStackNavigator} options={
+                {
+                    tabBarIcon: ({color}) => (
+                        <View style={styles.viewStyle}>
+                            <Image
+                                source={require('../assets/pokedex.png')}
+                                resizeMode='contain'
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    tintColor: color
+                                }}
+                            />
+                            <Text style={{color: color}}>Pokedex</Text>
+                        </View>
+                    )
+                }
 
-                }/>
-                <Tab.Screen name='Recherche' component={SearchStackNavigator} options={
-                    {
-                        tabBarIcon: ({color}) => (
-                            <View style={styles.viewStyle}>
-                                <Image
-                                    source={require('../assets/search.png')}
-                                    resizeMode='contain'
-                                    style={{
-                                        width: 25,
-                                        height: 25,
-                                        tintColor: color
-                                    }}
-                                />
-                                <Text style={{color: color}}>Recherche</Text>
-                            </View>
-                        )
-                    }
-                }/>
-                <Tab.Screen name='Mon équipe' component={TeamStackNavigator} options={
-                    {
-                        tabBarIcon: ({color}) => (
-                            <View style={styles.viewStyle}>
-                                <Image
-                                    source={require('../assets/team.png')}
-                                    resizeMode='contain'
-                                    style={{
-                                        width: 25,
-                                        height: 25,
-                                        tintColor: color
-                                    }}
-                                />
-                                <Text style={{color: color}}>Mon équipe</Text>
-                            </View>
+            }/>
+            <Tab.Screen name='Recherche' component={SearchStackNavigator} options={
+                {
+                    tabBarIcon: ({color}) => (
+                        <View style={styles.viewStyle}>
+                            <Image
+                                source={require('../assets/search.png')}
+                                resizeMode='contain'
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    tintColor: color
+                                }}
+                            />
+                            <Text style={{color: color}}>Recherche</Text>
+                        </View>
+                    )
+                }
+            }/>
+            <Tab.Screen name='Mon équipe' component={TeamStackNavigator} options={
+                {
+                    tabBarIcon: ({color}) => (
+                        <View style={styles.viewStyle}>
+                            <Image
+                                source={require('../assets/team.png')}
+                                resizeMode='contain'
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    tintColor: color
+                                }}
+                            />
+                            <Text style={{color: color}}>Mon équipe</Text>
+                        </View>
 
-                        )
-                    }
+                    )
+                }
 
-                }/>
-                <Tab.Screen name='Paramètres' component={SettingsStackNavigator} options={
-                    {
-                        tabBarIcon: ({color}) => (
-                            <View style={styles.viewStyle}>
-                                <Image
-                                    source={require('../assets/setting.png')}
-                                    resizeMode='contain'
-                                    style={{
-                                        width: 25,
-                                        height: 25,
-                                        tintColor: color
-                                    }}
-                                />
-                                <Text style={{color: color}}>Paramètres</Text>
-                            </View>
+            }/>
+            <Tab.Screen name='Paramètres' component={SettingsStackNavigator} options={
+                {
+                    tabBarIcon: ({color}) => (
+                        <View style={styles.viewStyle}>
+                            <Image
+                                source={require('../assets/setting.png')}
+                                resizeMode='contain'
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                    tintColor: color
+                                }}
+                            />
+                            <Text style={{color: color}}>Paramètres</Text>
+                        </View>
 
-                        )
-                    }
-                }/>
-            </Tab.Navigator>
-        );
+                    )
+                }
+            }/>
+        </Tab.Navigator>
+    );
 }
 
 function HomeStackNavigator() {
@@ -122,8 +122,8 @@ function HomeStackNavigator() {
             }
             />
             <Stack.Screen name='Pokemon' component={PokemonDetail} initialParams={{id: 1}} options={{
-                    title: 'Detail du Pokemon',
-                }}
+                title: 'Detail du Pokemon',
+            }}
             />
         </Stack.Navigator>
     )

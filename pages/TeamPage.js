@@ -46,10 +46,11 @@ export default function TeamPage() {
                         style={styles.list}
                         numColumns={2}
                         data={team}
-                        renderItem={({item}) => <PokemonCard name={item[1]} url={'https://pokeapi.co/api/v2/pokemon/'+ item[2] + '/'}/>}
+                        renderItem={({item}) =>
+                            <PokemonCard name={item[1]} url={'https://pokeapi.co/api/v2/pokemon/' + item[2] + '/'}/>}
                         keyExtractor={item => item[0]}
-                        />
-                    <View style={{ bottom: 150}}>
+                    />
+                    <View style={{bottom: 150}}>
                         <CustomButton title={'Vider l\'équipe'} event={clearTeam} color={'#E4000F'}></CustomButton>
                     </View>
                 </View>

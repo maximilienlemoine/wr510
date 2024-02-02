@@ -8,24 +8,40 @@ export default function HomePage() {
     const [nextPage, setNextPage] = useState([]);
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon')
-            .then(response => response.json())
-            .then(json => {
-                setNextPage(json.next)
-                setData(json.results)
-            })
-            .catch(error => console.error(error));
+        fetchData();
     }, []);
 
-    const fecthMoreData = () => {
-        fetch(nextPage.toString())
-            .then(response => response.json())
-            .then(json => {
-                setNextPage(json.next)
-                setData([...data, ...json.results])
-            })
-            .catch(error => console.error(error));
-    }
+    const fetchData = async () => {
+        try {
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon');
+
+            if (!response.ok) {
+                return;
+            }
+
+            const json = await response.json();
+            setNextPage(json.next);
+            setData(json.results);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const fetchMoreData = async () => {
+        try {
+            const response = await fetch(nextPage.toString());
+
+            if (!response.ok) {
+                return;
+            }
+
+            const json = await response.json();
+            setNextPage(json.next);
+            setData([...data, ...json.results]);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -35,7 +51,7 @@ export default function HomePage() {
                 data={data}
                 renderItem={({item}) => <PokemonCard name={item.name} url={item.url}/>}
                 keyExtractor={item => item.name}
-                onEndReached={fecthMoreData}
+                onEndReached={fetchMoreData}
                 onEndReachedThreshold={0.5}
             />
             <StatusBar style="auto"/>

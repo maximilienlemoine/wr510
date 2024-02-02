@@ -1,7 +1,7 @@
 import {Button} from "react-native";
 
 export default function CustomButton({event, color, title}) {
-    return(
+    return (
         <Button
             onPress={event}
             title={title}
