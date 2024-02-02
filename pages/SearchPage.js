@@ -14,6 +14,7 @@ export default function SearchPage() {
 
             if (!response.ok) {
                 setReturnText('Pokemon non trouvé');
+                setPokemon([]);
                 return;
             }
 
@@ -25,21 +26,23 @@ export default function SearchPage() {
     }
 
     return (
-        <SafeAreaView>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
-                value={text}
-                placeholder="nom du pokemon en anglais"
-                keyboardType="default"
-                pointerEvents={'none'}
-            ></TextInput>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.setting}>
+                <Text style={styles.label}>Nom d'un pokemon:</Text>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={onChangeText}
+                    value={text}
+                    placeholder="Entrer le nom d'un pokemon"
+                    keyboardType="default"
+                    pointerEvents={'none'}
+                ></TextInput>
+            </View>
             <CustomButton title={'Rechercher'} event={searchPokemon} color={'#E4000F'}></CustomButton>
 
             {pokemon.name !== undefined ? (
                 <View>
-                    <PokemonCard name={pokemon.name}
-                                 url={'https://pokeapi.co/api/v2/pokemon/' + pokemon.id + '/'}></PokemonCard>
+                    <PokemonCard name={pokemon.name} url={'https://pokeapi.co/api/v2/pokemon/' + pokemon.id + '/'}></PokemonCard>
                 </View>
             ) : (
                 <View>
@@ -54,10 +57,21 @@ export default function SearchPage() {
 const styles = StyleSheet.create({
     input: {
         height: 40,
-        margin: 12,
+        borderColor: 'gray',
         borderWidth: 1,
         padding: 10,
-        borderRadius: 25,
-
+        borderRadius: 5,
+    },
+    container: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#fff',
+    },
+    setting: {
+        marginBottom: 15,
+    },
+    label: {
+        fontWeight: 'bold',
+        marginBottom: 5,
     },
 });
