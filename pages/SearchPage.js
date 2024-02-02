@@ -41,7 +41,7 @@ export default function SearchPage() {
             <CustomButton title={'Rechercher'} event={searchPokemon} color={'#E4000F'}></CustomButton>
 
             {pokemon.name !== undefined ? (
-                <View>
+                <View style={styles.resultView}>
                     <PokemonCard name={pokemon.name} url={'https://pokeapi.co/api/v2/pokemon/' + pokemon.id + '/'}></PokemonCard>
                 </View>
             ) : (
@@ -73,5 +73,9 @@ const styles = StyleSheet.create({
     label: {
         fontWeight: 'bold',
         marginBottom: 5,
+    },
+    resultView: {
+        flex: 1,
+        alignItems: 'center',
     },
 });
