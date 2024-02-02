@@ -1,14 +1,15 @@
-import {SafeAreaView, StyleSheet, Text, View, TextInput, Switch, TouchableOpacity} from "react-native";
+import {SafeAreaView, StyleSheet, Text, View, TextInput, Switch, TouchableOpacity, Image} from "react-native";
 import {useCallback, useEffect, useState} from "react";
 import CustomButton from "../components/customButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {useFocusEffect} from "@react-navigation/native";
+import {useFocusEffect, useNavigation} from "@react-navigation/native";
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 export default function SettingsPage() {
     const [username, setUsername] = useState('');
     const [Orientation, setOrientation] = useState(false);
     const [picture, setPicture] = useState('')
+    const navigation = useNavigation();
 
     useFocusEffect(
         useCallback(() => {
@@ -68,6 +69,18 @@ export default function SettingsPage() {
                         onValueChange={(value) => changeOrientation(value)}
                     />
                 </View>
+
+                <View style={styles.setting}>
+                    <Text style={styles.label}>Photo de profil:</Text>
+
+                    <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
+                        { picture === '' ?
+                            <Text>Aucune photo</Text> :
+                            <Image source={{uri: picture}} style={styles.image}/>
+                        }
+                        <Text style={styles.button}>Capturer une photo</Text>
+                    </TouchableOpacity>
+                </View>
                 <CustomButton title={'Enregistrer'} event={updateSettings} color={'#E4000F'}></CustomButton>
             </View>
         </SafeAreaView>
@@ -104,5 +117,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-    }
+    },
+    image: {
+        width: 330,
+        height: 330,
+        alignItems: 'center',
+    },
+    button: {
+        backgroundColor: '#E4000F',
+        padding: 10,
+        borderRadius: 5,
+        alignItems: 'center',
+        color: 'white',
+        textAlign: 'center',
+        marginTop: 5,
+    },
 });

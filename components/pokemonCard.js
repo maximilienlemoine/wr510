@@ -5,7 +5,7 @@ import {useNavigation} from "@react-navigation/native";
 export default function PokemonCard({name, url}) {
     const navigation = useNavigation();
     const id = url.split('/')[url.split('/').length - 2];
-    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
     function capitalizeFirstLetter(string) {
         if (string === undefined)

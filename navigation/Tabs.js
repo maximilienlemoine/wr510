@@ -6,6 +6,7 @@ import SettingsPage from "../pages/SettingsPage";
 import {Image, View, Text, StyleSheet} from "react-native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import PokemonDetail from "../components/pokemonDetail";
+import CameraComponent from "../components/cameraComponent";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -166,9 +167,15 @@ function TeamStackNavigator() {
 function SettingsStackNavigator() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name='Tabs' component={SettingsPage} options={
+            <Stack.Screen name='Settings' component={SettingsPage} options={
                 {
                     title: 'Paramètres',
+                }
+            }
+            />
+            <Stack.Screen name='Camera' component={CameraComponent} options={
+                {
+                    title: 'Camera'
                 }
             }
             />
